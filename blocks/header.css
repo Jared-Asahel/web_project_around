@@ -1,0 +1,34 @@
+.header {
+  max-width: 880px;
+  width: 100%;
+  margin: auto;
+  padding-top: 45px;
+}
+
+.header__logo {
+  max-width: 173px;
+  width: 100%;
+}
+
+.header__line {
+  width: 100%;
+  height: 1px;
+  background-color: #545454;
+  opacity: 70%;
+  margin-top: 41px;
+}
+
+@media screen and (max-width: 320px) {
+  .header {
+    max-width: 320px;
+    padding-top: 28px;
+  }
+
+  .header__logo {
+    max-width: 126px;
+  }
+
+  .header__line {
+    margin-top: 32px;
+  }
+}
