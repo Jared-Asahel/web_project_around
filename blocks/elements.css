@@ -11,6 +11,9 @@
 .elements__group {
   max-width: 282px;
   width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .elements__image {
@@ -48,18 +51,19 @@
   height: 19px;
 }
 
-@media screen and (max-width: 320px) {
-  .elements {
-    max-width: 320px;
-    grid-template-columns: auto;
-    grid-template-rows: repeat(6, 1fr);
-  }
-}
-
 @media screen and (max-width: 768px) {
   .elements {
     max-width: 584px;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
+  }
+
+  @media screen and (max-width: 320px) {
+    .elements {
+      max-width: 320px;
+      grid-template-columns: auto;
+      grid-template-rows: repeat(6, 1fr);
+      justify-content: center;
+    }
   }
 }
