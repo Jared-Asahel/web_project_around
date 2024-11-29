@@ -56,6 +56,8 @@
     max-width: 584px;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
+    padding: 20px;
+    box-sizing: border-box;
   }
 
   @media screen and (max-width: 320px) {
@@ -64,6 +66,8 @@
       grid-template-columns: auto;
       grid-template-rows: repeat(6, 1fr);
       justify-content: center;
+      padding: 10px;
+      box-sizing: border-box;
     }
   }
 }

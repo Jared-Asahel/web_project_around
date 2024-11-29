@@ -5,6 +5,7 @@ const input1 = document.querySelector("#nombre");
 const input2 = document.querySelector("#acercaDeMi");
 const name1 = document.querySelector("#name1");
 const name2 = document.querySelector("#name2");
+const guardar = document.querySelector("#guardar");
 
 openPopButton.addEventListener("click", openpopup);
 function openpopup() {
@@ -15,10 +16,12 @@ function closepopup() {
   form1.style.display = "none";
 }
 
-input1.addEventListener("input", () => {
+guardar.addEventListener("click", () => {
   name1.textContent = input1.value;
+  form1.style.display = "none";
 });
 
-input2.addEventListener("input", () => {
+guardar.addEventListener("click", () => {
   name2.textContent = input2.value;
+  form1.style.display = "none";
 });
