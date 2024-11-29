@@ -72,6 +72,10 @@
   box-sizing: border-box;
 }
 
+.profile__button:hover {
+  opacity: 50%;
+}
+
 .profile__button-2 {
   width: 24px;
   height: 24px;
@@ -80,6 +84,10 @@
   margin-left: 15px;
   padding: 7px;
   box-sizing: border-box;
+}
+
+.profile__button-2:hover {
+  opacity: 50%;
 }
 
 .profile__button-img {
@@ -101,6 +109,7 @@
   }
 
   .profile__button {
+    max-width: 282px;
     margin-left: 0;
   }
 }
