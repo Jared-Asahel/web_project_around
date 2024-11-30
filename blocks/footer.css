@@ -4,12 +4,13 @@
   margin: auto;
   margin-top: 67px;
   padding-bottom: 60px;
+  padding: 20px;
 }
 
 .footer__paragraph {
   max-width: 318px;
   width: 100%;
-  font-family: "Inter";
+  font-family: "Inter", "Arial", "Helvetica", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;

@@ -1,12 +1,13 @@
 .profile {
   max-width: 880px;
   width: 100%;
-  padding-top: 40px;
+  padding: 40px 20px 0 20px;
   display: flex;
   margin: auto;
   justify-content: space-between;
   margin-bottom: 50px;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .profile__content {
@@ -17,6 +18,7 @@
   max-width: 120px;
   width: 100%;
   height: auto;
+  height: 100%;
   display: block;
   border-radius: 50%;
 }
@@ -39,7 +41,7 @@
 .profile__name {
   max-width: 373px;
   width: 100%;
-  font-family: "Inter";
+  font-family: "Inter", "Arial", "Helvetica", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 42px;
@@ -51,7 +53,7 @@
 .profile__name-2 {
   max-width: 415px;
   width: 100%;
-  font-family: "Inter";
+  font-family: "Inter", "Arial", "Helvetica", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -111,6 +113,15 @@
   .profile__button {
     max-width: 282px;
     margin-left: 0;
+  }
+
+  .profile__name {
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .profile__name-2 {
+    text-align: center;
   }
 }
 @media screen and (max-width: 320px) {
