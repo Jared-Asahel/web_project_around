@@ -10,7 +10,7 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="popup" id="form1">
+    <div class="popup" id="formPerfil">
       <div class="popup__container">
         <h2 class="popup__title">Editar perfil</h2>
         <input
@@ -28,10 +28,46 @@
         <button class="popup__button-1" id="guardar">Guardar</button>
         <img
           src="./imagenes/Close Icon (1).png"
-          alt="Boton abrir popup"
+          alt="Boton cerrar popup"
           id="closepopup"
           class="popup__button"
         />
+      </div>
+    </div>
+    <div class="popup" id="formCards">
+      <div class="popup__container">
+        <h2 class="popup__title">Nuevo lugar</h2>
+        <input
+          type="text"
+          class="popup__input"
+          placeholder="Titulo"
+          id="Titulo"
+        />
+        <input
+          type="text"
+          class="popup__input popup__margin-top"
+          placeholder="Enlace de la imagen"
+          id="Enlace"
+        />
+        <button class="popup__button-1" id="guardar2">Guardar</button>
+        <img
+          src="./imagenes/Close Icon (1).png"
+          alt="Boton cerrar popup"
+          id="closePopupCards"
+          class="popup__button"
+        />
+      </div>
+    </div>
+    <div class="popup" id="Image">
+      <div class="popup__container_image">
+        <img src="" alt="Imagen" class="popup__image" />
+        <img
+          src="./imagenes/Close Icon (1).png"
+          alt="Boton cerrar popup"
+          id="closePopupImage"
+          class="popup__button"
+        />
+        <p class="popup__paragraph"></p>
       </div>
     </div>
     <div class="page">
@@ -67,108 +103,27 @@
               src="./imagenes/Vector (3).png"
               alt="Vector del boton"
               class="profile__button-img"
+              id="openPopupCards"
             />
           </button>
         </section>
-        <section class="elements">
-          <article class="elements__group">
-            <img
-              src="./imagenes/kirill-pershin-1088404-unsplash.png"
-              alt="Imagen de Valle de Yosemite"
-              class="elements__group elements__image"
-            />
-            <div class="elements__rectangle">
-              <p class="elements__rectangle elements__paragraph">
-                Valle de Yosemite
-              </p>
+        <section class="elements" id="elements">
+          <template id="card-template">
+            <li class="elements__group">
               <img
-                src="./imagenes/Group (2).png"
-                alt="Icono de corazón"
-                class="elements__heart"
+                src="./imagenes/Trash (1).png"
+                alt=""
+                class="elements__remove"
               />
-            </div>
-          </article>
-          <article class="elements__group">
-            <img
-              src="./imagenes/kirill-pershin-1404681-unsplash.png"
-              alt="Imagen de Lago Louise"
-              class="elements__group elements__image"
-            />
-            <div class="elements__rectangle">
-              <p class="elements__rectangle elements__paragraph">Lago Louise</p>
-              <img
-                src="./imagenes/Group (2).png"
-                alt="Icono de corazón"
-                class="elements__heart"
-              />
-            </div>
-          </article>
-          <article class="elements__group">
-            <img
-              src="./imagenes/kirill-pershin-1556355-unsplash.png"
-              alt="Imagen de Montañas Calvas"
-              class="elements__group elements__image"
-            />
-            <div class="elements__rectangle">
-              <p class="elements__rectangle elements__paragraph">
-                Montañas Calvas
-              </p>
-              <img
-                src="./imagenes/Group (2).png"
-                alt="Icono de corazón"
-                class="elements__heart"
-              />
-            </div>
-          </article>
-          <article class="elements__group">
-            <img
-              src="./imagenes/kirill-pershin-1404681-unsplash (1).png"
-              alt="Imagen de Latemar"
-              class="elements__group elements__image"
-            />
-            <div class="elements__rectangle">
-              <p class="elements__rectangle elements__paragraph">Latemar</p>
-              <img
-                src="./imagenes/Group (2).png"
-                alt="Icono de corazón"
-                class="elements__heart"
-              />
-            </div>
-          </article>
-          <article class="elements__group">
-            <img
-              src="./imagenes/kirill-pershin-1556355-unsplash (1).png"
-              alt="Imagen de Vanois National..."
-              class="elements__group elements__image"
-            />
-            <div class="elements__rectangle">
-              <p class="elements__rectangle elements__paragraph">
-                Vanois National...
-              </p>
-              <img
-                src="./imagenes/Group (2).png"
-                alt="Icono de corazón"
-                class="elements__heart"
-              />
-            </div>
-          </article>
-          <article class="elements__group">
-            <img
-              src="./imagenes/kirill-pershin-1088404-unsplash (1).png"
-              alt="Imagen de Lago di Braies"
-              class="elements__group elements__image"
-            />
-            <div class="elements__rectangle">
-              <p class="elements__rectangle elements__paragraph">
-                Lago di Braies
-              </p>
-              <img
-                src="./imagenes/Group (2).png"
-                alt="Icono de corazón"
-                class="elements__heart"
-              />
-            </div>
-          </article>
+              <div>
+                <img src="" alt="Imagen de carta" class="elements__image" />
+              </div>
+              <div class="elements__rectangle">
+                <h2 class="elements__paragraph"></h2>
+                <button class="elements__heart"></button>
+              </div>
+            </li>
+          </template>
         </section>
         <footer class="footer">
           <p class="footer__paragraph">© 2024 Around The U.S.</p>

@@ -1,7 +1,7 @@
 .elements {
   display: grid;
   grid-template-columns: repeat(3, auto);
-  grid-template-rows: repeat(2, 50%);
+  grid-template-rows: repeat(2, auto);
   max-width: 880px;
   width: 100%;
   gap: 17px 20px;
@@ -11,6 +11,7 @@
 }
 
 .elements__group {
+  position: relative;
   max-width: 282px;
   width: 100%;
   text-overflow: ellipsis;
@@ -21,7 +22,9 @@
 .elements__image {
   max-width: 282px;
   width: 100%;
-  height: auto;
+  height: 282px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
 }
 
 .elements__rectangle {
@@ -52,9 +55,40 @@
 }
 
 .elements__heart {
-  width: 21px;
-  height: 19px;
+  border: none;
+  background: url(https://practicum-content.s3.us-west-1.amazonaws.com/web-code/dom/moved_heart.svg)
+    center no-repeat;
+  background-size: 100%;
+  cursor: pointer;
+  height: 21px;
+  width: 19px;
+  right: 10px;
+  transition: 0.3s;
   margin-left: 8px;
+}
+
+.elements__heart:hover {
+  transform: scale(1.3);
+  opacity: 80%;
+}
+
+.elements__heart_active {
+  background: url(https://practicum-content.s3.us-west-1.amazonaws.com/web-code/dom/moved_heart-filled.svg)
+    center no-repeat;
+}
+
+.elements__remove {
+  width: 18px;
+  height: 19.3px;
+  position: absolute;
+  right: 15px;
+  top: 28px;
+  z-index: 10;
+}
+
+.elements__remove:hover {
+  opacity: 50%;
+  transform: scale(1.1);
 }
 
 @media screen and (max-width: 768px) {
