@@ -111,25 +111,53 @@ function closepopup() {
   formPerfil.classList.remove("popup__active");
 }
 
-/* formPerfil.addEventListener("click", () => {
-  formPerfil.classList.remove("popup__active");
+//Cerrar popup pulsando fuera del formulario y con la tecla "esc"
+formPerfil.addEventListener("click", (evt) => {
+  if (evt.target.classList.contains("popup__active")) {
+    formPerfil.classList.remove("popup__active");
+  }
 });
 
-formCards.addEventListener("click", () => {
-  formCards.classList.remove("popup__active");
-}); */
+formCards.addEventListener("click", (evt) => {
+  if (evt.target.classList.contains("popup__active")) {
+    formCards.classList.remove("popup__active");
+  }
+});
 
-guardar.addEventListener("click", () => {
+popupImageCrads.addEventListener("click", (evt) => {
+  if (evt.target.classList.contains("popup__active")) {
+    popupImageCrads.classList.remove("popup__active");
+  }
+});
+
+formPerfil.addEventListener("keydown", (evt) => {
+  if (evt.key === "Escape") {
+    formPerfil.classList.remove("popup__active");
+  }
+});
+
+formCards.addEventListener("keydown", (evt) => {
+  if (evt.key === "Escape") {
+    formCards.classList.remove("popup__active");
+  }
+});
+
+popupImageCrads.addEventListener("keydown", (evt) => {
+  if (evt.key === "Escape") {
+    popupImageCrads.classList.remove("popup__active");
+  }
+});
+//-----------------------------------------------------------------
+
+guardar.addEventListener("click", (evt) => {
+  evt.preventDefault();
+
   name1.textContent = input1.value;
-  formPerfil.style.display = "none";
-});
-
-guardar.addEventListener("click", () => {
   name2.textContent = input2.value;
-  formPerfil.style.display = "none";
+  formPerfil.classList.remove("popup__active");
 });
 
 guardarCard.addEventListener("click", () => {
   crearCard(inputName.value, inputLink.value);
-  formCards.style.display = "none";
+  formCards.classList.remove("popup__active");
 });
