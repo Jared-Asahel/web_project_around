@@ -11,52 +11,70 @@
   </head>
   <body>
     <div class="popup" id="formPerfil">
-      <div class="popup__container">
+      <form class="popup__container">
         <h2 class="popup__title">Editar perfil</h2>
         <input
+          required
           type="text"
           class="popup__input"
           placeholder="Nombre"
           id="nombre"
+          minlength="2"
+          maxlength="40"
         />
+        <span class="popup__error" id="nombre-error"></span>
         <input
+          required
           type="text"
           class="popup__input popup__margin-top"
           placeholder="Acerca de mi"
           id="acercaDeMi"
+          minlength="2"
+          maxlength="200"
         />
-        <button class="popup__button-1" id="guardar">Guardar</button>
+        <span class="popup__error" id="acercaDeMi-error"></span>
+        <button class="popup__button-1" id="guardar" type="submit" disabled>
+          Guardar
+        </button>
         <img
           src="./imagenes/Close Icon (1).png"
           alt="Boton cerrar popup"
           id="closepopup"
           class="popup__button"
         />
-      </div>
+      </form>
     </div>
     <div class="popup" id="formCards">
-      <div class="popup__container">
+      <form class="popup__container">
         <h2 class="popup__title">Nuevo lugar</h2>
         <input
+          required
           type="text"
           class="popup__input"
           placeholder="Titulo"
           id="Titulo"
+          minlength="2"
+          maxlength="30"
         />
+        <span class="popup__error" id="Titulo-error"></span>
         <input
-          type="text"
+          required
+          type="url"
           class="popup__input popup__margin-top"
           placeholder="Enlace de la imagen"
           id="Enlace"
         />
-        <button class="popup__button-1" id="guardar2">Guardar</button>
+        <span class="popup__error" id="Enlace-error"></span>
+        <button class="popup__button-1" id="guardar2" type="submit">
+          Guardar
+        </button>
         <img
           src="./imagenes/Close Icon (1).png"
           alt="Boton cerrar popup"
           id="closePopupCards"
           class="popup__button"
         />
-      </div>
+      </form>
     </div>
     <div class="popup" id="Image">
       <div class="popup__container_image">
@@ -130,6 +148,6 @@
         </footer>
       </main>
     </div>
-    <script src="./scripts/index.js"></script>
+    <script defer src="./scripts/index.js" type="module"></script>
   </body>
 </html>

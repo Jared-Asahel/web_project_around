@@ -1,3 +1,5 @@
+import "./validate.js";
+
 const openPopButton = document.querySelector("#openpopup");
 const closePupopButton = document.querySelector("#closepopup");
 const formPerfil = document.querySelector("#formPerfil");
@@ -108,6 +110,14 @@ closePupopButton.addEventListener("click", closepopup);
 function closepopup() {
   formPerfil.classList.remove("popup__active");
 }
+
+/* formPerfil.addEventListener("click", () => {
+  formPerfil.classList.remove("popup__active");
+});
+
+formCards.addEventListener("click", () => {
+  formCards.classList.remove("popup__active");
+}); */
 
 guardar.addEventListener("click", () => {
   name1.textContent = input1.value;
