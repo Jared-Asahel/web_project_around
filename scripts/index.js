@@ -1,90 +1,53 @@
-import "./validate.js";
+import "./FormValidator.js";
+import Card from "./Card.js";
 
-const openPopButton = document.querySelector("#openpopup");
-const closePupopButton = document.querySelector("#closepopup");
-const formPerfil = document.querySelector("#formPerfil");
-const input1 = document.querySelector("#nombre");
-const input2 = document.querySelector("#acercaDeMi");
-const name1 = document.querySelector("#name1");
-const name2 = document.querySelector("#name2");
-const guardar = document.querySelector("#guardar");
-const cardTemplate = document.querySelector("#card-template");
-const sectionList = document.querySelector("#elements");
-const openPopupCards = document.querySelector(".profile__button");
-const closePopupCards = document.querySelector("#closePopupCards");
-const formCards = document.querySelector("#formCards");
-const guardarCard = document.querySelector("#guardar2");
-const inputName = document.querySelector("#Titulo");
-const inputLink = document.querySelector("#Enlace");
-const imageCards = document.querySelector(".popup__image");
-const paragraphImage = document.querySelector(".popup__paragraph");
-const imageCard = document.querySelector("#imageCard");
-const popupImageCrads = document.querySelector("#Image");
-const closePopupImage = document.querySelector("#closePopupImage");
-
-const initialCards = [
-  {
-    name: "Valle de Yosemite",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg",
-  },
-  {
-    name: "Lago Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg",
-  },
-  {
-    name: "Montañas Calvas",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg",
-  },
-  {
-    name: "Parque Nacional de la Vanoise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
-  },
-];
+import {
+  guardar,
+  openPopButton,
+  sectionList,
+  openPopupCards,
+  closePopupCards,
+  formCards,
+  popupImageCrads,
+  closePopupImage,
+  initialCards,
+  formPerfil,
+  closePupopButton,
+} from "./util.js";
+import FormValidator from "./FormValidator.js";
 
 initialCards.forEach((item) => {
-  crearCard(item.name, item.link);
+  const newCard = new Card(item.name, item.link, "#card-template").getView();
+  sectionList.append(newCard);
 });
 
-function crearCard(name, link) {
-  const newCard = cardTemplate.content
-    .querySelector(".elements__group")
-    .cloneNode(true);
-  const newImage = newCard.querySelector(".elements__image");
-  const descriptionCard = newCard.querySelector(".elements__paragraph");
-  const likeButton = newCard.querySelector(".elements__heart");
+const CrearCard = new FormValidator(
+  {
+    formSelector: ".popup__container",
+    inputSelector: ".popup__input",
+    submitButtonSelector: ".popup__button-1",
+    inactiveButtonClass: "popup__button_disabled",
+    inputErrorClass: "popup__input_type_error",
+    errorClass: "popup__error_visible",
+  },
+  ".popup__container"
+);
 
-  newImage.src = link;
-  descriptionCard.textContent = name;
+CrearCard.enableValidation();
 
-  likeButton.addEventListener("click", function (event) {
-    event.target.classList.toggle("elements__heart_active");
-  });
+const EditPerfil = new FormValidator(
+  {
+    formSelector: "#formCard",
+    inputSelector: ".popup__input",
+    submitButtonSelector: ".popup__button-1",
+    inactiveButtonClass: "popup__button_disabled",
+    inputErrorClass: "popup__input_type_error",
+    errorClass: "popup__error_visible",
+  },
+  "#formCard"
+);
 
-  newImage.addEventListener("click", function (event) {
-    popupImageCrads.classList.add("popup__active");
-    imageCards.src = link;
-    paragraphImage.textContent = name;
-  });
-
-  sectionList.prepend(newCard);
-
-  sectionList.addEventListener("click", (event) => {
-    if (event.target.classList.contains("elements__remove")) {
-      const card = event.target.closest(".elements__group");
-      if (card) {
-        card.remove();
-      }
-    }
-  });
-}
+EditPerfil.enableValidation();
 
 closePopupImage.addEventListener("click", closeImage);
 function closeImage() {
@@ -101,10 +64,9 @@ function closepopup2() {
   formCards.classList.remove("popup__active");
 }
 
-openPopButton.addEventListener("click", openpopup);
-function openpopup() {
+openPopButton.addEventListener("click", () => {
   formPerfil.classList.add("popup__active");
-}
+});
 
 closePupopButton.addEventListener("click", closepopup);
 function closepopup() {
@@ -148,16 +110,3 @@ popupImageCrads.addEventListener("keydown", (evt) => {
   }
 });
 //-----------------------------------------------------------------
-
-guardar.addEventListener("click", (evt) => {
-  evt.preventDefault();
-
-  name1.textContent = input1.value;
-  name2.textContent = input2.value;
-  formPerfil.classList.remove("popup__active");
-});
-
-guardarCard.addEventListener("click", () => {
-  crearCard(inputName.value, inputLink.value);
-  formCards.classList.remove("popup__active");
-});
