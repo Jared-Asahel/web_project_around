@@ -49,7 +49,7 @@ const initialCards = [
   },
 ];
 
-formCards.addEventListener("submit", (event) => {
+/* formCards.addEventListener("submit", (event) => {
   event.preventDefault();
   const newCard = new Card(
     inputName.value,
@@ -58,15 +58,15 @@ formCards.addEventListener("submit", (event) => {
   ).getView();
   sectionList.prepend(newCard);
   formCards.classList.remove("popup__active");
-});
+}); */
 
-formPerfil.addEventListener("submit", (event) => {
+/* formPerfil.addEventListener("submit", (event) => {
   event.preventDefault();
 
   name1.textContent = input1.value;
   name2.textContent = input2.value;
   formPerfil.classList.remove("popup__active");
-});
+}); */
 
 export {
   openPopButton,

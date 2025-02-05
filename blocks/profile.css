@@ -98,7 +98,7 @@
   z-index: 99;
 }
 
-@media screen and (max-width: 544px) {
+@media screen and (max-width: 575px) {
   .profile {
     flex-direction: column;
   }

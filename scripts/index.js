@@ -46,11 +46,16 @@ const userInfo = new UserInfo({
 });
 
 const profilePopup = new PopupWithForm("#formPerfil", (formData) => {
-  userInfo.setUserInfo(formData);
+  userInfo.setUserInfo({ name: formData.Nombre, job: formData.Acerca });
+  console.log(formData);
 });
 profilePopup.setEventListeners();
 
 document.querySelector("#openpopup").addEventListener("click", () => {
+  /*   const userData = userInfo.getUserInfo();
+  document.querySelector("#nombre").value = userData.name;
+  document.querySelector("#acercaDeMi").value = userData.job; */
+
   profilePopup.open();
 });
 

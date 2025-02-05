@@ -23,7 +23,6 @@ export default class Card {
   }
 
   _setEventListeners() {
-    console.log(this);
     this._element
       .querySelector(".elements__image")
       .addEventListener("click", () => {
