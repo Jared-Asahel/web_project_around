@@ -1,8 +1,9 @@
 export default class Card {
-  constructor(name, link, cardSelector) {
+  constructor({ name, link }, cardSelector, handleCardClick) {
     this._name = name;
     this._link = link;
     this._cardSelector = cardSelector;
+    this._handleCardClick = handleCardClick;
   }
   _getTemplate() {
     return document
@@ -11,43 +12,45 @@ export default class Card {
       .cloneNode(true);
   }
 
-  _viewCard() {
-    this._cardImage.classList.add("popup__active");
-
-    this._image = document.querySelector(".popup__image");
-    this._text = document.querySelector(".popup__paragraph");
-
-    this._image.src = this._link;
-    this._text.textContent = this._name;
-  }
-
   _handleDeleteCard() {
     this._element.remove();
   }
 
   _handleLikeCard() {
-    this._likeButton.classList.toggle("elements__heart_active");
+    this._element
+      .querySelector(".elements__heart")
+      .classList.toggle("elements__heart_active");
   }
 
   _setEventListeners() {
-    this._deleteButton = this._element.querySelector(".elements__remove");
-    this._deleteButton.addEventListener("click", () =>
-      this._handleDeleteCard()
-    );
-    this._likeButton = this._element.querySelector(".elements__heart");
-    this._likeButton.addEventListener("click", () => this._handleLikeCard());
-    this._cardImage = document.querySelector("#Image");
-    this._newImage.addEventListener("click", () => this._viewCard());
+    console.log(this);
+    this._element
+      .querySelector(".elements__image")
+      .addEventListener("click", () => {
+        this._handleCardClick(this._name, this._link);
+      });
+
+    this._element
+      .querySelector(".elements__heart")
+      .addEventListener("click", () => {
+        this._handleLikeCard();
+      });
+
+    this._element
+      .querySelector(".elements__remove")
+      .addEventListener("click", () => {
+        this._handleDeleteCard();
+      });
   }
 
   getView() {
     this._element = this._getTemplate();
+    this._element.querySelector(".elements__paragraph").textContent =
+      this._name;
 
-    this._newImage = this._element.querySelector(".elements__image");
-    this._descriptionCard = this._element.querySelector(".elements__paragraph");
-
-    this._newImage.src = this._link;
-    this._descriptionCard.textContent = this._name;
+    const cardImage = this._element.querySelector(".elements__image");
+    cardImage.src = this._link;
+    cardImage.alt = this._name;
 
     this._setEventListeners();
 
