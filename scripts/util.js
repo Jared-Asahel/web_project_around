@@ -1,5 +1,3 @@
-import Card from "./Card.js";
-
 const openPopButton = document.querySelector("#openpopup");
 const closePupopButton = document.querySelector("#closepopup");
 const formPerfil = document.querySelector("#formPerfil");
@@ -48,25 +46,6 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
   },
 ];
-
-/* formCards.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const newCard = new Card(
-    inputName.value,
-    inputLink.value,
-    "#card-template"
-  ).getView();
-  sectionList.prepend(newCard);
-  formCards.classList.remove("popup__active");
-}); */
-
-/* formPerfil.addEventListener("submit", (event) => {
-  event.preventDefault();
-
-  name1.textContent = input1.value;
-  name2.textContent = input2.value;
-  formPerfil.classList.remove("popup__active");
-}); */
 
 export {
   openPopButton,

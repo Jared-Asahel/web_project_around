@@ -10,8 +10,43 @@
     <title>Document</title>
   </head>
   <body>
+    <!---------------------------------------------------------------------->
+    <div class="popup" id="PerfilImage">
+      <form class="popup__container" id="formPerfilImage">
+        <h2 class="popup__title">Cambiar foto de perfil</h2>
+        <input
+          required
+          type="url"
+          class="popup__input"
+          placeholder="Enlace de la imagen"
+          id="Enlace"
+          name="link"
+        />
+        <span class="popup__error" id="Enlace-error"></span>
+        <button class="popup__button-1" type="submit" disabled>si</button>
+        <img
+          src="./imagenes/Close Icon (1).png"
+          alt="Boton cerrar popup"
+          id="closepopup"
+          class="popup__button"
+        />
+      </form>
+    </div>
+    <!------------------------------------------------------------------------->
+    <div class="popup" id="formDelete">
+      <form class="popup__container" id="formDeleteCard">
+        <h2 class="popup__title">¿Estas seguro/a?</h2>
+        <button class="popup__button-1" type="submit">si</button>
+        <img
+          src="./imagenes/Close Icon (1).png"
+          alt="Boton cerrar popup"
+          class="popup__button"
+        />
+      </form>
+    </div>
+    <!-- ---------------------------------------------------- -->
     <div class="popup" id="formPerfil">
-      <form class="popup__container">
+      <form class="popup__container" id="formEditPerfil">
         <h2 class="popup__title">Editar perfil</h2>
         <input
           required
@@ -100,11 +135,19 @@
       <main class="content">
         <section class="profile">
           <div class="profile__content">
-            <img
-              src="./imagenes/image.jpg"
-              alt="Foto de perfil"
-              class="profile__image"
-            />
+            <div class="profile__image-content">
+              <img
+                src="./imagenes/image.jpg"
+                alt="Foto de perfil"
+                class="profile__image"
+                id="perfilImage"
+              />
+              <img
+                src="./imagenes/Vector.svg"
+                alt=""
+                class="profile__image-pencil"
+              />
+            </div>
             <div class="profile__info">
               <div class="profile__info-2">
                 <h2 class="profile__info-2 profile__name" id="name1">
@@ -136,6 +179,7 @@
                 src="./imagenes/Trash (1).png"
                 alt=""
                 class="elements__remove"
+                id="buttonDelete"
               />
               <div>
                 <img src="" alt="Imagen de carta" class="elements__image" />
