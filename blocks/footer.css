@@ -9,7 +9,6 @@
 }
 
 .footer__paragraph {
-  max-width: 318px;
   width: 100%;
   font-family: "Inter", "Arial", "Helvetica", sans-serif;
   font-style: normal;
@@ -20,13 +19,12 @@
   margin: 0;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 385px) {
   .footer {
     max-width: 282px;
   }
 
   .footer__paragraph {
-    max-width: 282px;
     font-size: 14px;
     line-height: 17px;
   }

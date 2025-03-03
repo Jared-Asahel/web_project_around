@@ -28,8 +28,8 @@ api.getInitialCards().then((res) => {
           () => {
             api.deleteLikeCard(item._id);
           },
-          () => {
-            popupDeleteCard.open(item._id);
+          (_id, handleDeleteCard) => {
+            popupDeleteCard.open(item._id, handleDeleteCard);
           }
         ).getView();
         section.addItem(newCard);
@@ -141,7 +141,12 @@ document
   .addEventListener("click", () => {
     popupImagePerfil.open();
   });
-const popupDeleteCard = new PopupWithConfirmation("#formDelete", (id) => {
-  api.deleteCard(id);
-});
+const popupDeleteCard = new PopupWithConfirmation(
+  "#formDelete",
+  (id, handleDeleteCard) => {
+    api.deleteCard(id).then(() => {
+      handleDeleteCard();
+    });
+  }
+);
 popupDeleteCard.setEventListeners();

@@ -1,4 +1,3 @@
-import Card from "./Card.js";
 import Popup from "./Popup.js";
 
 export default class PopupWithConfirmation extends Popup {
@@ -8,19 +7,21 @@ export default class PopupWithConfirmation extends Popup {
     this._handleDelete = handleDelete;
   }
 
-  open(id) {
+  open(id, handleDeleteCard) {
     super.open();
     this.id = id;
+    this.handleDeleteCard = handleDeleteCard;
   }
 
   setEventListeners() {
     super.setEventListeners();
     this._form.addEventListener("submit", (event) => {
-      this._handleDelete(this.id);
+      this._handleDelete(this.id, this.handleDeleteCard);
       event.preventDefault();
       this.close();
     });
   }
+
   close() {
     super.close();
     this._form.reset();

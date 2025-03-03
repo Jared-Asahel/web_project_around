@@ -18,6 +18,7 @@ export default class Card {
     this._handleCardLike = handleCardLike;
     this._handleDeleteCardLike = handleDeleteCardLike;
     this._handleOpenConfirm = handleOpenConfirm;
+    this.handleDeleteCard = this.handleDeleteCard.bind(this);
   }
   _getTemplate() {
     return document
@@ -27,7 +28,7 @@ export default class Card {
   }
 
   _handleOpenForm() {
-    this._handleOpenConfirm(this._id);
+    this._handleOpenConfirm(this._id, this.handleDeleteCard);
   }
 
   handleDeleteCard() {
